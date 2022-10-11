@@ -30,9 +30,11 @@ application {
 dependencies {
   implementation(platform("io.vertx:vertx-stack-depchain:$vertxVersion"))
   implementation("io.vertx:vertx-web")
+  implementation("com.github.wnameless:json-flattener:0.7.1")
   testImplementation("io.vertx:vertx-junit5")
   testImplementation("org.junit.jupiter:junit-jupiter:$junitJupiterVersion")
 }
+
 
 java {
   sourceCompatibility = JavaVersion.VERSION_15
