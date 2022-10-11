@@ -16,6 +16,8 @@ repositories {
 
 val vertxVersion = "4.3.4"
 val junitJupiterVersion = "5.7.0"
+val jaywayJsonPath = "2.6.0"
+val apacheCommons = "3.10"
 
 val mainVerticleName = "com.json.evaluatepath.MainVerticle"
 val launcherClassName = "io.vertx.core.Launcher"
@@ -30,11 +32,13 @@ application {
 dependencies {
   implementation(platform("io.vertx:vertx-stack-depchain:$vertxVersion"))
   implementation("io.vertx:vertx-web")
+  implementation("com.jayway.jsonpath:json-path:$jaywayJsonPath")
+  implementation("org.apache.commons:commons-lang3:$apacheCommons")
   implementation("com.github.wnameless:json-flattener:0.7.1")
+
   testImplementation("io.vertx:vertx-junit5")
   testImplementation("org.junit.jupiter:junit-jupiter:$junitJupiterVersion")
 }
-
 
 java {
   sourceCompatibility = JavaVersion.VERSION_15

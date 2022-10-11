@@ -1,5 +1,6 @@
 package com.json.evaluatepath.jsonflattener;
 
+import com.github.wnameless.json.flattener.JsonFlattener;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -7,14 +8,12 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.stream.Collectors;
 
-import com.github.wnameless.json.flattener.JsonFlattener;
-
 public class JsonFlattenerImpl {
 
-    public void apply(String mockJson, String resourcePath) {
-
+    String resourcePath = "rxnormcode";
+    public void apply(String jsonToWorkOn) {
         //flatten json
-        Map<String, Object> flattenJson = JsonFlattener.flattenAsMap(mockJson);
+        Map<String, Object> flattenJson = JsonFlattener.flattenAsMap(jsonToWorkOn);
         flattenJson.values().removeIf(Objects::isNull);
         ConcurrentMap<String, Object> concurrentMap = new ConcurrentHashMap<>(flattenJson);
 
