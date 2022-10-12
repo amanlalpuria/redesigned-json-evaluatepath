@@ -3,10 +3,13 @@ package com.json.evaluatepath.documentcontext;
 import com.jayway.jsonpath.*;
 import io.vertx.core.json.JsonObject;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static com.json.evaluatepath.resource.EvaluatePathResource.*;
 
 public class DocumentContextImpl {
+    private static final Logger LOGGER = LoggerFactory.getLogger(DocumentContextImpl.class);
     public void apply(String jsonToWorkOn) {
         DocumentContext documentContext = getParseContext().parse(jsonToWorkOn);
         String sourceKeyValue = evaluteJsonPath(documentContext, CASE1_MATCH_KEY.getString("sourcePath"));
